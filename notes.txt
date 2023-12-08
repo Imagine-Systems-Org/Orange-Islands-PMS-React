@@ -1,0 +1,25 @@
+Patient Name
+Type of Visit: Onsite or Offsite
+Days Stayed:
+Current Condition:
+Ongoing Treatments:
+Considerations:
+Prescriptions:
+Nurses Notes:
+Assigned Doctor:
+Assigned Nurse:
+Emergency Contact:
+Trainer:
+
++ add new patient
++ Critical Update Notifications
+
+SCREENS:
+Log In Screen 
+Dashboard - with List of current patients
+Health History
+
+User logs In
+Create New User
+
+Font: https://fonts.google.com/specimen/Nova+Mono?classification=Display,Monospace
