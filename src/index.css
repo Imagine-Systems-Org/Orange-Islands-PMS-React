@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* // adds on tailwind parameters with one className */
+@layer components {
+    .sidebar-icon {
+      @apply relative flex items-center justify-evenly 
+      h-24 w-24 mx-12
+    bg-Jasper hover:bg-Barn
+    text-Barn hover:text-gray-200
+      hover:rounded-3xl rounded-xl
+      transition-all duration-300 ease-linear
+      cursor-pointer shadow-lg;
+    }
+  
+    .sidebar-tooltip {
+      @apply absolute w-auto p-2 m-2 min-w-max top-28 rounded-md shadow-md
+      text-gray-600 bg-Selective
+      text-xs font-bold 
+      transition-all scale-0 origin-top;
+    }
+    }
