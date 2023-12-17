@@ -1,18 +1,26 @@
-import { useState } from 'react'
 import './App.css'
+import Layout from './components/Layout'
+import Login from './pages/Login';
 import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import RequireAuth from './components/RequireAuth';
 import NavBar from './components/NavBar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+
 
 function App() {
 
   return (
-    <BrowserRouter>
-    <NavBar />
       <Routes>
+        <Route path="/" element={<Layout />}>
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route element={<RequireAuth />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+        </Route>
       </Routes>
-    </BrowserRouter>
   )
 }
 
