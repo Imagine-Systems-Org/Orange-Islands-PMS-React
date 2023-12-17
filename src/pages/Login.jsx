@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { FaArrowCircleLeft } from "react-icons/fa";
 import useAuth from '../api/useAuth';
 
 import axios from '../api/axios';
@@ -10,7 +11,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/dashboard";
 
     const userRef = useRef();
     const errRef = useRef();
@@ -59,12 +60,13 @@ const Login = () => {
     }
 
     return (
-                <section className='mt-44'>
+        <>
+                <section className='form-section h-screen'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Sign In</h1>
-                    <form onSubmit={handleSubmit}>
-                        <label htmlFor="username">Username:</label>
+                    <h1 className='heading'>Welcome tO suN CLinic</h1>
+                    <form className="grid gap-4 grid-cols-2 grid-rows-3 items-center" onSubmit={handleSubmit}>
                         <input
+                            className='input-form-login'
                             type="text"
                             id="username"
                             ref={userRef}
@@ -73,25 +75,33 @@ const Login = () => {
                             value={employeeID}
                             required
                         />
+                        <label className='font-MajorMono text-2xl' htmlFor="username">emPloyee ID</label>
 
-                        <label htmlFor="password">Password:</label>
                         <input
+                            className='input-form'
                             type="password"
                             id="password"
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
                         />
-                        <button>Sign In</button>
+                        <label className='font-MajorMono text-2xl' htmlFor="password">pAsswOrd</label>
+                        <button className='login-button row-start-3 col-start-2 relative group'>Log In 
+                        <FaArrowCircleLeft className='absolute right-0 bottom-0 group-hover:rotate-180 transition-all duration-300' size={50}/></button>
+
+
+
                     </form>
-                    <p>
-                        Need an Account?<br />
-                        <span className="line">
-                            {/*put router link here*/}
-                            <a href="#">Sign Up</a>
-                        </span>
-                    </p>
+                    <div className="grid gap-4 grid-cols-2 grid-rows-1 items-center">
+                    <Link className='row-start-1 col-start-2' to="/register">
+                    <button
+                        className='login-button relative group'>New User
+                        <FaArrowCircleLeft className='absolute right-0 bottom-0 group-hover:rotate-180 transition-all duration-300' size={50}/>
+                    </button>
+                    </Link>
+                    </div>
                 </section>
+                </>
     )
 }
 

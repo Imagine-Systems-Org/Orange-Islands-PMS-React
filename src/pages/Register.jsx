@@ -1,4 +1,6 @@
 import { useRef, useState, useEffect } from "react";
+import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { IoArrowUndo } from "react-icons/io5";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaCircleCheck } from "react-icons/fa6";
@@ -11,6 +13,10 @@ const REGISTER_URL = 'users/register';
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/dashboard";
 
     const [profession, setProfession] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -73,14 +79,7 @@ const Register = () => {
             console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response))
             //clear state and controlled inputs
-            setProfession('');
-            setFirstName('');
-            setLastName('');
-            setEmployeeID('');
-            setPassword('');
-            setMatchPwd('');
-            setEmail('');
-            setPhone('');
+            navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {
                 console.log(err);
@@ -96,11 +95,13 @@ const Register = () => {
 
     return (
         <>
-                <section className="mt-44 flex flex-col justify-center items-center">
+                <section className="form-section">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                   
                     <h1 className="heading">
                         creAte a nEw User
                     </h1>
+
                     <form className="flex flex-col w-96" onSubmit={handleSubmit}>
                         <label className="input-label" htmlFor="profession">
                             Profession
@@ -237,7 +238,8 @@ const Register = () => {
 
                         <button className="confirm-button" 
                                 disabled={!validName || !validPwd || !validMatch ? true : false}>
-                            <FaCircleCheck className="self-center mr-2" size="18"/> Create Account</button>
+                        <FaCircleCheck className="self-center mr-2" size="18"/> Create Account</button>
+                        <Link className="self-end my-3" to="/login"><IoArrowUndo size="60" /></Link>
                     </form>
                 </section>
             
