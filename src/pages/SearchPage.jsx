@@ -20,10 +20,10 @@ function SearchPage() {
     }, [])
 
     return (
-        <>
+        <section className='form-section'>
         <SearchBar patients={patients} trainer={trainer} setSearchResults={setSearchResults} />
         <PatientList searchResults={searchResults} />
-        </>
+        </section>
     )
 
 }
