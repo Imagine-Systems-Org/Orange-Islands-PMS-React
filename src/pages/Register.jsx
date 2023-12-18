@@ -4,6 +4,8 @@ import { IoArrowUndo } from "react-icons/io5";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaCircleCheck } from "react-icons/fa6";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import axios from '../api/axios';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -95,6 +97,7 @@ const Register = () => {
 
     return (
         <>
+        <Header />
                 <section className="form-section">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                    
@@ -242,6 +245,7 @@ const Register = () => {
                         <Link className="self-end my-3" to="/login"><IoArrowUndo size="60" /></Link>
                     </form>
                 </section>
+                <Footer />
             
         </>
     )

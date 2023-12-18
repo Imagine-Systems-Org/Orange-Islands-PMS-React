@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { FaArrowCircleLeft } from "react-icons/fa";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import useAuth from '../api/useAuth';
 
 import axios from '../api/axios';
@@ -61,7 +63,9 @@ const Login = () => {
 
     return (
         <>
-                <section className='form-section h-screen'>
+        <Header />
+                <section className='form-section h-[70vh]'>
+
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1 className='heading'>Welcome tO suN CLinic</h1>
                     <form className="grid gap-4 grid-cols-2 grid-rows-3 items-center" onSubmit={handleSubmit}>
@@ -101,6 +105,7 @@ const Login = () => {
                     </Link>
                     </div>
                 </section>
+                <Footer />
                 </>
     )
 }

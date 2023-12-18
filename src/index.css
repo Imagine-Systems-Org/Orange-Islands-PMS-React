@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@media screen and (max-width: 600px) {
+  .footer {
+    height: 21vh;
+  }
+}
+
 /* // adds on tailwind parameters with one className */
 @layer components {
     .sidebar-icon {
