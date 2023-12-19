@@ -106,6 +106,10 @@ As a Employee of Sun Clinic, I want quick access to emergency contact informatio
 
 ![Adding Patient](./src/assets/WireFrames/Adding%20Patient.png)
 
+## Patient Records
+
+![Patient Records](./src/assets/WireFrames/Patient%20Record.png)
+
 ## New Patient Entry
 
 ![New Patient Entry](./src/assets/WireFrames/New%20Patient%20Entry.png)

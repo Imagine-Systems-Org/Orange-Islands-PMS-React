@@ -1,8 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
+import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ patients, setSearchResults }) => {
     const handleSubmit = (e) => e.preventDefault()
+    const navigate = useNavigate();
 
     const handleSearchChange = (e) => {
         if (!e.target.value) return setSearchResults(patients)
@@ -13,17 +14,20 @@ const SearchBar = ({ patients, setSearchResults }) => {
     }
 
     return (
-            <form className="search" onSubmit={handleSubmit}>
+        <section className="flex flex-row items-center">
+            <form className="relative" onSubmit={handleSubmit}>
                 <input
-                    className="search__input"
+                    className="input-form w-[36vw] pl-10"
                     type="text"
                     id="search"
                     onChange={handleSearchChange}
                 />
-                <button className="search__button">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                <button className="absolute left-2 top-3.5">
+                    <CiSearch size="30" />
                 </button>
             </form>
+            <button onClick={() => (navigate("/newpatient"))} className="new-patient-button">+ New Patient</button>
+        </section>
     )
 }
 export default SearchBar

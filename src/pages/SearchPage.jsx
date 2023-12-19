@@ -2,6 +2,7 @@ import { getPatients } from '../api/getPatients'
 import { useState, useEffect } from 'react'
 import PatientList from '../components/PatientList'
 import SearchBar from "../components/SearchBar"
+import NavBar from '../components/NavBar'
 
 
 function SearchPage() {
@@ -20,10 +21,13 @@ function SearchPage() {
     }, [])
 
     return (
-        <section className='form-section'>
+        <>
+        <NavBar />
+        <section className='form-section mt-40'>
         <SearchBar patients={patients} trainer={trainer} setSearchResults={setSearchResults} />
         <PatientList searchResults={searchResults} />
         </section>
+        </>
     )
 
 }
