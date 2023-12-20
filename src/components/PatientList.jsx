@@ -9,7 +9,9 @@ const PatientList = ({ searchResults }) => {
     return (
         <>
         <section>{results}</section>
-        <section className="patientarticle text-3xl">End of Results...</section>
+        <section className="patientarticle text-3xl flex flex-row items-center justify-center">
+            End of Results...
+        </section>
         </>
     )
 }

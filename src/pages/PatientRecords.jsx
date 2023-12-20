@@ -1,12 +1,15 @@
 import { useLocation } from "react-router-dom";
+import PatientCard from "../components/PatientCard";
+import NavBar from "../components/NavBar";
 
 const PatientRecords = () => {
     let patientData = useLocation();
     const { patient } = patientData.state;
     return ( 
-        <div>
-            {patient.name}
-        </div>
+        <>
+            <NavBar />
+            <PatientCard patient={patient} />
+        </>
      );
 }
  
