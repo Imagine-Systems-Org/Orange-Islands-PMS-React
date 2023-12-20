@@ -153,7 +153,7 @@ const NewPatient = () => {
 
                         <button className="confirm-button">
                         <FaCircleCheck className="self-center mr-2" size="18"/> Save Patient</button>
-                        <Link className="self-end my-3" to="/login"><IoArrowUndo size="60" /></Link>
+                        <Link className="self-end my-3" to="/search"><IoArrowUndo size="60" /></Link>
                     </form>
                 </section>
                 <Footer />
