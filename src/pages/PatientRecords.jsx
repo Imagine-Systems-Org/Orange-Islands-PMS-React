@@ -22,7 +22,7 @@ const PatientRecords = () => {
         <>
             <NavBar />
             <PatientCard patient={patient} />
-            <div className="flex flex-row justify-center align-middle items-center">
+            <div className="flex flex-row justify-center align-middle items-center mb-10">
                 <h1 className="font-Zilla text-3xl p-5 relative">Patient Entries
                 <RiArrowDownDoubleFill className="absolute top-12 right-24" size="50" />
                 </h1>

@@ -8,11 +8,19 @@
   }
 }
 
+.hover-item {
+  transition: 0.3s;
+}
+.hover-item:hover {
+  transform: translate(0, -2px);
+}
+
+
 /* // adds on tailwind parameters with one className */
 @layer components {
     .sidebar-icon {
-      @apply relative flex items-center justify-evenly 
-      h-24 w-24 mx-12
+      @apply relative flex items-center justify-center 
+      h-24 w-24
     bg-Jasper hover:bg-Barn
     text-Barn hover:text-gray-200
       hover:rounded-3xl rounded-xl
@@ -79,5 +87,8 @@
       @apply grid grid-cols-9 grid-rows-1 h-[150px] w-[36vw] items-center bg-Persian
         m-5 rounded-2xl text-gray-200 font-Zilla relative
         hover:bg-Amaranth transition-all duration-500 ease-in-out
+    }
+    .patient-entry-inner {
+      @apply mx-3 mb-3 mt-5 rounded-xl border-4 border-Selective p-2 bg-gray-100
     }
     }
