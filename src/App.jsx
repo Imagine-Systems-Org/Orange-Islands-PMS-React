@@ -8,6 +8,7 @@ import RequireAuth from './components/RequireAuth';
 import { Routes, Route } from 'react-router-dom'
 import PatientRecords from './pages/PatientRecords';
 import NewPatient from './pages/NewPatientForm';
+import Logout from './components/Logout';
 
 
 
@@ -18,12 +19,14 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/search/:patientid" element={<PatientRecords />} />
-          <Route path="/newpatient" element={<NewPatient />} />
+
 
           <Route element={<RequireAuth />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/search/:patientid" element={<PatientRecords />} />
+            <Route path="/newpatient" element={<NewPatient />} />
+            <Route path="/logout" element={<Logout />} />
 
           </Route>
           </Route>
