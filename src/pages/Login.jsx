@@ -68,7 +68,7 @@ const Login = () => {
     return (
         <>
         <Header />
-                <section className='form-section h-[70vh]'>
+                <section className='form-section min-h-screen'>
 
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1 className='heading'>Welcome tO suN CLinic</h1>

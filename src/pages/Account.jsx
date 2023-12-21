@@ -8,6 +8,7 @@ const Account = () => {
     return ( 
         <>
         <NavBar />
+        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
         <section className="min-h-screen flex flex-row align-middle justify-center">
             <div className="inline-grid mt-36">
             <Link className="self-start p-10 inline-grid" to="/dashboard"><IoArrowUndo size="80" /></Link>

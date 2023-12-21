@@ -2,7 +2,7 @@ const PatientRecordDisplay = ({ patientrecord }) => {
     let entryDate = patientrecord.entryDate.slice(0, 10)
     console.log(patientrecord);
     return ( 
-        <section className="hover-item w-screen h-auto flex items-center justify-center my-8 font-Zilla">
+        <section className="bg-transparent hover-item w-screen h-auto flex items-center justify-center my-8 font-Zilla">
             <div className="w-[95vw] shadow-xl shadow-gray-800 hover:shadow-Barn transition-all bg-Amaranth border-Selective border-4 grid grid-cols-4 grid-rows-2 relative h-[350px] rounded-xl p-5">
             <h1 className="absolute left-5 text-3xl text-gray-200">Date: {entryDate}</h1>
             <div className="patient-entry-inner col-start-1 col-end-1 row-start-1 row-end-1 col-span-1 row-span-1">Treatment: {patientrecord.treatment}</div>

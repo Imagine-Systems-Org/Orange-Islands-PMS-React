@@ -29,6 +29,7 @@ const Dashboard = () => {
     return ( 
         <>
         <NavBar />
+        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
         <DashboardList myPatients={myPatients} />
         <FooterDashboard className="sticky bottom-0"/>
         </>

@@ -1,10 +1,8 @@
 const Footer = () => {
     return ( 
-        <section className="relative">
-            <footer className="footer w-screen h-[15vh] bg-Selective sticky bottom-0">
-                <span className="font-Nova absolute text-3xl bottom-7 left-5">Imagine Systems<sup>TM</sup></span>
+            <footer className="footer w-screen h-[10vh] bg-Selective sticky bottom-0">
+                <span className="font-Nova absolute text-xl m-5 left-5">Imagine Systems<sup>TM</sup></span>
             </footer>
-        </section>
      );
 }
  

@@ -21,6 +21,7 @@ function SearchPage() {
     return (
         <>
         <NavBar />
+        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
         <section className='form-section mt-40 min-h-screen align-top justify-start'>
         <SearchBar patients={patients} setSearchResults={setSearchResults} />
         <PatientList searchResults={searchResults} />
