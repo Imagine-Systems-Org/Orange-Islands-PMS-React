@@ -4,12 +4,15 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import useAuth from '../api/useAuth';
+import useAccount from '../api/useAccount';
+import { getUser } from '../api/getUser';
 
 import axios from '../api/axios';
 const LOGIN_URL = 'users/login';
 
 const Login = () => {
     const { setAuth } = useAuth();
+    const { setAccount } = useAccount();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -44,9 +47,10 @@ const Login = () => {
             //console.log(JSON.stringify(response));
             // const accessToken = response?.data?.accessToken;
             setAuth({ employeeID, password, accessToken });
-            setEmployeeID('');
-            setPassword('');
-            navigate(from, { replace: true });
+            getUser(employeeID).then(json => {
+                setAccount(json)
+            })
+            navigate("/dashboard");
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');

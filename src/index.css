@@ -12,7 +12,7 @@
   transition: 0.3s;
 }
 .hover-item:hover {
-  transform: translate(0, -2px);
+  transform: translate(0, -3px);
 }
 
 
@@ -82,6 +82,12 @@
     }
     .heading {
       @apply font-MajorMono text-4xl mb-7 mt-12
+    }
+    .dashboard-article {
+      @apply grid grid-rows-1 grid-cols-6 m-5 p-5 font-Zilla rounded-xl 
+      text-3xl bg-Persian text-gray-100 
+      align-middle items-center justify-between border-Barn border-4 w-[70vw]
+      shadow-md shadow-gray-900
     }
     .patientarticle {
       @apply grid grid-cols-9 grid-rows-1 h-[150px] w-[36vw] items-center bg-Persian
