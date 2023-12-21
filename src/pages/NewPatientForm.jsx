@@ -4,6 +4,7 @@ import { IoArrowUndo } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 import axios from '../api/axios';
 import NavBar from "../components/NavBar";
+import BackgroundImage from "../components/BackgroundImage";
 
 const NEWPATIENT_URL = 'patients/new';
 
@@ -54,7 +55,7 @@ const NewPatient = () => {
     return (
         <>
         <NavBar />
-        <img className="object-contain fixed w-screen top-0 z-[-1]" src="src/assets/Background.png"></img>
+        <BackgroundImage />
                 <section className="form-section mt-32">
                    
                     <h1 className="heading">

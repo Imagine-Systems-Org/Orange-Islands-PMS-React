@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import useAccount from "../api/useAccount";
 import DashboardList from "../components/DashboardList";
 import FooterDashboard from "../components/FooterDashboard";
+import BackgroundImage from "../components/BackgroundImage";
 import { useState, useEffect } from "react";
 import { getPatientsByDoctor, getPatientsByNurse } from "../api/getPatientsByEmployee";
 
@@ -29,7 +30,7 @@ const Dashboard = () => {
     return ( 
         <>
         <NavBar />
-        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
+        <BackgroundImage />
         <DashboardList myPatients={myPatients} />
         <FooterDashboard className="sticky bottom-0"/>
         </>

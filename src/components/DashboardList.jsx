@@ -4,10 +4,12 @@ const DashboardList = ({ myPatients }) => {
 
     const results = myPatients.map(myPatient => <DashboardAcc key={myPatient._id} myPatient={myPatient}/>)
 
-    // const content = results?.length ? results : <article><p>No Matching Patients</p></article>
-
     return (
-        <section className="mt-40 flex flex-col items-center min-h-[64vh] w-screen">{results}</section>
+        <section className="mt-40 flex flex-col items-center min-h-[64vh] w-screen">
+            <section className="w-[70vw]">
+            <h1 className="ml-6 mb-5 font-MajorMono text-3xl">yOur PaTiEntS</h1>
+            </section>
+            {results}</section>
     )
 }
 
