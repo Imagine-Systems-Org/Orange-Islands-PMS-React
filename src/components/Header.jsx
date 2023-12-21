@@ -4,7 +4,7 @@ const Header = () => {
     return ( 
         <section>
             <header className="w-screen h-[15vh] bg-Selective">
-            <TbSunset2 className="text-Iris absolute right-20" size="110" />
+            <TbSunset2 className="text-Iris absolute right-20" size="15vh" />
             </header>
         </section>
      );
