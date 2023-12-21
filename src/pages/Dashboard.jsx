@@ -30,7 +30,7 @@ const Dashboard = () => {
         <>
         <NavBar />
         <DashboardList myPatients={myPatients} />
-        <FooterDashboard />
+        <FooterDashboard className="sticky bottom-0"/>
         </>
      );
 }

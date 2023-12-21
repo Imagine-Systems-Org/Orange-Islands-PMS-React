@@ -21,11 +21,11 @@ function SearchPage() {
     return (
         <>
         <NavBar />
-        <section className='form-section mt-40 min-h-[63.5vh]'>
+        <section className='form-section mt-40 min-h-screen align-top justify-start'>
         <SearchBar patients={patients} setSearchResults={setSearchResults} />
         <PatientList searchResults={searchResults} />
         </section>
-        <Footer />
+        <footer className="w-screen h-[5vh] bg-Selective sticky bottom-0" />
         </>
     )
 

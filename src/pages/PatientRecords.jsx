@@ -34,7 +34,7 @@ const PatientRecords = () => {
             </div>
 
             <PatientRecordsList patientrecords={patientRecords} />
-            <Footer />
+            <footer className="w-screen h-[5vh] bg-Selective sticky bottom-0" />
 
         </>
      );

@@ -14,7 +14,7 @@ const SearchBar = ({ patients, setSearchResults }) => {
     }
 
     return (
-        <section className="flex flex-row items-center">
+        <section className="flex flex-row">
             <form className="relative" onSubmit={handleSubmit}>
                 <input
                     className="input-form w-[36vw] pl-10"
