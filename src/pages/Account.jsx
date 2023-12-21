@@ -1,4 +1,5 @@
 import useAccount from "../api/useAccount";
+import BackgroundImage from "../components/BackgroundImage";
 import NavBar from "../components/NavBar";
 import { IoArrowUndo } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -8,7 +9,7 @@ const Account = () => {
     return ( 
         <>
         <NavBar />
-        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
+        <BackgroundImage />
         <section className="min-h-screen flex flex-row align-middle justify-center">
             <div className="inline-grid mt-36">
             <Link className="self-start p-10 inline-grid" to="/dashboard"><IoArrowUndo size="80" /></Link>

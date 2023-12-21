@@ -16,7 +16,7 @@ The **purpose** of the Orange Islands Patient Management System is to help staff
 
 **Tech Stack**
 
-Front-end: HTML5, CSS3, ReactJS, Javascript
+Front-end: HTML5, CSS3, ReactJS, JavaScript
 
 Back-end: Node, ExpressJS, MongoDB, Mongoose
 
@@ -24,7 +24,7 @@ Deployment: Heroku, Netlify
 
 Testing: Cypress, Jest
 
-DevOps: Git, Github, VS Code
+DevOps: Git, GitHub, VS Code
 
 # Data Flow Diagram
 

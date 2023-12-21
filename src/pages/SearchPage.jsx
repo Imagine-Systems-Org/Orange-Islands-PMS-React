@@ -4,6 +4,7 @@ import PatientList from '../components/PatientList'
 import SearchBar from "../components/SearchBar"
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
+import BackgroundImage from '../components/BackgroundImage'
 
 
 function SearchPage() {
@@ -21,7 +22,7 @@ function SearchPage() {
     return (
         <>
         <NavBar />
-        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
+        <BackgroundImage />
         <section className='form-section mt-40 min-h-screen align-top justify-start'>
         <SearchBar patients={patients} setSearchResults={setSearchResults} />
         <PatientList searchResults={searchResults} />

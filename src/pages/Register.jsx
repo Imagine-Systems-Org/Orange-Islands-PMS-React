@@ -7,6 +7,7 @@ import { FaCircleCheck } from "react-icons/fa6";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import axios from '../api/axios';
+import BackgroundImage from "../components/BackgroundImage";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{4,24}$/;
@@ -98,7 +99,7 @@ const Register = () => {
     return (
         <>
         <Header />
-        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
+        <BackgroundImage />
                 <section className="form-section">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                    

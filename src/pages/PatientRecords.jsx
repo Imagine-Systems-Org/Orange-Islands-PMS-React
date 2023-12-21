@@ -6,6 +6,7 @@ import { RiArrowDownDoubleFill } from "react-icons/ri";
 import PatientCard from "../components/PatientCard";
 import NavBar from "../components/NavBar";
 import PatientRecordsList from "../components/PatientRecordsList";
+import BackgroundImage from "../components/BackgroundImage";
 
 const PatientRecords = () => {
     let patientData = useLocation();
@@ -21,6 +22,7 @@ const PatientRecords = () => {
     return ( 
         <>
             <NavBar />
+            <BackgroundImage />
             <PatientCard patient={patient} />
             <div className="flex flex-row justify-center align-middle items-center mb-10">
                 <h1 className="font-Zilla text-3xl p-5 relative">Patient Entries
