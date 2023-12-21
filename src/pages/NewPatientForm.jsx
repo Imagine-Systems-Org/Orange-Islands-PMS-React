@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { IoArrowUndo } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
-import Footer from "../components/Footer";
 import axios from '../api/axios';
 import NavBar from "../components/NavBar";
 
@@ -55,7 +54,8 @@ const NewPatient = () => {
     return (
         <>
         <NavBar />
-                <section className="form-section mt-40">
+        <img className="object-contain fixed w-screen top-0 z-[-1]" src="src/assets/Background.png"></img>
+                <section className="form-section mt-32">
                    
                     <h1 className="heading">
                         aDding pAtIent...
@@ -156,7 +156,7 @@ const NewPatient = () => {
                         <Link className="self-end my-3" to="/search"><IoArrowUndo size="60" /></Link>
                     </form>
                 </section>
-                <Footer />
+                <footer className="w-screen h-[5vh] bg-Selective sticky bottom-0" />
             
         </>
     )

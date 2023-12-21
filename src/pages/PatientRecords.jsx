@@ -6,7 +6,6 @@ import { RiArrowDownDoubleFill } from "react-icons/ri";
 import PatientCard from "../components/PatientCard";
 import NavBar from "../components/NavBar";
 import PatientRecordsList from "../components/PatientRecordsList";
-import Footer from "../components/Footer";
 
 const PatientRecords = () => {
     let patientData = useLocation();

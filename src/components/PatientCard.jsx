@@ -21,7 +21,8 @@ const PatientCard = ({ patient }) => {
         }, [])
 
     return ( 
-        <section className="w-screen h-auto flex items-center justify-center mt-32">
+        
+        <section className="bg-transparent w-screen h-auto flex items-center justify-center mt-32 z-[-2]">
             <Link className="self-start my-3" to="/search"><IoArrowUndo size="80" /></Link>
             <div className="grid gap-4 grid-cols-2 grid-rows-5 bg-Iris text-gray-100 m-5 p-5 pb-10 rounded-xl font-Zilla items-center align-middle justify-center">
                 <div className="flex flex-row col-span-2 row-span-2 w-auto m-auto text-7xl justify-center align-middle items-center">

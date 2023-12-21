@@ -98,10 +98,11 @@ const Register = () => {
     return (
         <>
         <Header />
+        <img className="object-contain fixed z-[-1] top-0" src="src/assets/Background.png"></img>
                 <section className="form-section">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                    
-                    <h1 className="heading">
+                    <h1 className="heading mt-32">
                         creAte a nEw User
                     </h1>
 

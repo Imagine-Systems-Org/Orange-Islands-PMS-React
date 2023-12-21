@@ -86,7 +86,7 @@
     .dashboard-article {
       @apply grid grid-rows-1 grid-cols-6 m-5 p-5 font-Zilla rounded-xl 
       text-3xl bg-Persian text-gray-100 
-      align-middle items-center justify-between border-Barn border-4 w-[70vw]
+      align-middle items-center justify-between border-gray-300 border-4 w-[70vw]
       shadow-md shadow-gray-900
     }
     .patientarticle {
