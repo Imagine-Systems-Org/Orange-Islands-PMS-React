@@ -10,12 +10,12 @@ import PatientRecords from './pages/PatientRecords';
 import NewPatient from './pages/NewPatientForm';
 import Logout from './components/Logout';
 import Account from './pages/Account';
+import NewPatientEntry from './pages/NewPatientEntry';
 
 
 
 const App = () => {
   return (
-    <body>
         <Routes>
           <Route path="/" element={<Layout />}>
           <Route path="/" element={<Login />} />
@@ -28,13 +28,13 @@ const App = () => {
             <Route path="/account" element={<Account />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/search/:patientid" element={<PatientRecords />} />
+            <Route path="/newentry" element={<NewPatientEntry />} />
             <Route path="/newpatient" element={<NewPatient />} />
             <Route path="/logout" element={<Logout />} />
 
           </Route>
           </Route>
         </Routes>
-      </body>
   )
 }
 
