@@ -1,12 +1,19 @@
-import NameOptions from "./NameOptions";
-
-const OptionsMapper = ({ options }) => {
-
-    const results = options.map(option => <NameOptions key={option._id} options={option}/>)
+const OptionsMapper = ({ options, setParameter }) => {
     return ( 
-        <select className="input-form">
+        <select 
+        onChange={e => {
+            setParameter(e.target.value)
+        }}
+        onBlur={(e) => {
+            setParameter(e.target.value);
+          }}
+        className="input-form">
+        required
             <option />
-            {results}
+            {options.map(option => (
+                <option 
+                key={option._id} value={option._id}>{option.lastName}</option>
+            ))}
         </select>
      );
 }
