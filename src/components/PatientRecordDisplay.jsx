@@ -1,6 +1,5 @@
 const PatientRecordDisplay = ({ patientrecord }) => {
     let entryDate = patientrecord.entryDate.slice(0, 10)
-    console.log(patientrecord);
     return ( 
         <section className="bg-transparent hover-item w-screen h-auto flex items-center justify-center my-8 font-Zilla">
             <div className="w-[95vw] shadow-xl shadow-gray-800 hover:shadow-Barn transition-all bg-Amaranth border-Selective border-4 grid grid-cols-4 grid-rows-2 relative h-[350px] rounded-xl p-5">
