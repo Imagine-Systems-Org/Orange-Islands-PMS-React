@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { IoArrowUndo } from "react-icons/io5";
 import { FaCircleCheck } from "react-icons/fa6";
 import axios from '../api/axios';
 import NavBar from "../components/NavBar";
+import OptionsMapper from "../components/OptionsMapper";
 import BackgroundImage from "../components/BackgroundImage";
+import { getAllDoctors } from "../api/getAllDoctors";
+import { getAllNurses } from "../api/getAllNurses";
 
 const NEWPATIENT_URL = 'patients/new';
 
@@ -22,6 +25,18 @@ const NewPatient = () => {
     const [trainerName, setTrainerName] = useState('');
     const [trainerPhone, setTrainerPhone] = useState('');
     const [setErrMsg] = useState('');
+
+    const [doctors, setDoctors] = useState([]);
+    const [nurses, setNurses] = useState([]);
+
+    useEffect(() => {
+        getAllDoctors().then(json => {
+            setDoctors(json)
+        })
+        getAllNurses().then(json => {
+            setNurses(json)
+        })
+        }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -127,6 +142,14 @@ const NewPatient = () => {
                             onChange={(e) => setAllergies(e.target.value)}
                             value={allergies}
                         />
+                        <label className="input-label" htmlFor="doctorselect">
+                            Assign Doctor
+                        </label>
+                        <OptionsMapper id="doctorselect" options={doctors} />
+                        <label className="input-label" htmlFor="doctorselect">
+                            Assign Nurse
+                        </label>
+                        <OptionsMapper id="doctorselect" options={nurses} />
                         <h1 className="input-label text-3xl font-bold my-3">Trainer</h1>
                         <label className="input-label" htmlFor="password">
                             Name
