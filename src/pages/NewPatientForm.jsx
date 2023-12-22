@@ -22,12 +22,15 @@ const NewPatient = () => {
     const [assignedDoctor, setAssignedDoctor] = useState('');
     const [assignedNurse, setAssignedNurse] = useState('');
     const [allergies, setAllergies] = useState('');
+    const [bed, setBed] = useState('');
     const [trainerName, setTrainerName] = useState('');
     const [trainerPhone, setTrainerPhone] = useState('');
     const [setErrMsg] = useState('');
 
     const [doctors, setDoctors] = useState([]);
     const [nurses, setNurses] = useState([]);
+
+    const BEDS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
     useEffect(() => {
         getAllDoctors().then(json => {
@@ -46,6 +49,8 @@ const NewPatient = () => {
                                 species, 
                                 category, 
                                 dateOfBirth,
+                                allergies,
+                                bed,
                                 trainerName, 
                                 trainerPhone }),
                 {
@@ -151,6 +156,28 @@ const NewPatient = () => {
                             Assign Nurse
                         </label>
                         <OptionsMapper setParameter={setAssignedNurse} id="doctorselect" options={nurses} />
+                        <label className="input-label" htmlFor="bed">
+                            Assign Bed
+                            </label>
+                            <select 
+                                className="input-form"
+                                id="bed"
+                                name="bed"
+                                value={bed}
+                                onChange={e => {
+                                    setBed(e.target.value)
+                                }}
+                                onBlur={(e) => {
+                                    setBed(e.target.value);
+                                }}
+                                >
+                                {/* <option /> adds an empty option at the top */}
+                                <option />
+                                {BEDS.map(bed => (
+                                    <option key={bed}>{bed}</option>
+                                ))}
+                            </select>
+                        
                         <h1 className="input-label text-3xl font-bold my-3">Trainer</h1>
                         <label className="input-label" htmlFor="password">
                             Name

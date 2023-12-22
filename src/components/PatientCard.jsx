@@ -20,6 +20,8 @@ const PatientCard = ({ patient }) => {
         })
         }, [])
 
+    console.log(patient);
+
     return ( 
         
         <section className="bg-transparent w-screen h-auto flex items-center justify-center mt-32 z-[-2]">

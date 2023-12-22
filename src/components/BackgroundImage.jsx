@@ -1,4 +1,4 @@
-const imageUrl = "src/assets/Background.png"
+const imageUrl = "../src/assets/Background.png"
 
 function BackgroundImage() {
     return (
