@@ -9,8 +9,6 @@ import BackgroundImage from "../components/BackgroundImage";
 import { getAllDoctors } from "../api/getAllDoctors";
 import { getAllNurses } from "../api/getAllNurses";
 
-const NEWPATIENT_URL = 'patients/new';
-
 const NewPatient = () => {
 
     const navigate = useNavigate();
@@ -21,6 +19,8 @@ const NewPatient = () => {
     const [species, setSpecies] = useState('');
     const [category, setCategory] = useState('');
     const [dateOfBirth, setDateOfBirth] = useState('');
+    const [assignedDoctor, setAssignedDoctor] = useState('');
+    const [assignedNurse, setAssignedNurse] = useState('');
     const [allergies, setAllergies] = useState('');
     const [trainerName, setTrainerName] = useState('');
     const [trainerPhone, setTrainerPhone] = useState('');
@@ -41,11 +41,11 @@ const NewPatient = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(NEWPATIENT_URL,
+            const response = await axios.post(`patients/new/doctor/${assignedDoctor}/nurse/${assignedNurse}`,
                 JSON.stringify({ name, 
                                 species, 
                                 category, 
-                                dateOfBirth, 
+                                dateOfBirth,
                                 trainerName, 
                                 trainerPhone }),
                 {
@@ -66,6 +66,7 @@ const NewPatient = () => {
             }
         }
     }
+    console.log(assignedDoctor)
 
     return (
         <>
@@ -145,11 +146,11 @@ const NewPatient = () => {
                         <label className="input-label" htmlFor="doctorselect">
                             Assign Doctor
                         </label>
-                        <OptionsMapper id="doctorselect" options={doctors} />
+                        <OptionsMapper setParameter={setAssignedDoctor} id="doctorselect" options={doctors} />
                         <label className="input-label" htmlFor="doctorselect">
                             Assign Nurse
                         </label>
-                        <OptionsMapper id="doctorselect" options={nurses} />
+                        <OptionsMapper setParameter={setAssignedNurse} id="doctorselect" options={nurses} />
                         <h1 className="input-label text-3xl font-bold my-3">Trainer</h1>
                         <label className="input-label" htmlFor="password">
                             Name
