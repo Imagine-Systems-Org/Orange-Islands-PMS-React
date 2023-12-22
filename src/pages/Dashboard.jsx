@@ -26,7 +26,7 @@ const Dashboard = () => {
 
 
 
-    console.log(myPatients)
+    console.log(account)
     return ( 
         <>
         <NavBar />
