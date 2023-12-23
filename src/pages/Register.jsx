@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
-import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { IoArrowUndo } from "react-icons/io5";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaCircleCheck } from "react-icons/fa6";
 import Footer from "../components/Footer";
@@ -103,6 +103,7 @@ const Register = () => {
                     </h1>
 
                     <form className="flex flex-col w-96" onSubmit={handleSubmit}>
+                        {/* PROFESSION */}
                         <label className="input-label" htmlFor="profession">
                             Profession
                             </label>
@@ -126,7 +127,8 @@ const Register = () => {
                             </select>
 
                         <div>
-                        <label className="input-label" htmlFor="First Name">
+                        {/* FIRST NAME */}
+                        <label className="input-label" htmlFor="firstName">
                             First Name:
                         </label>
                         <input
@@ -135,10 +137,11 @@ const Register = () => {
                             id="firstName"
                             onChange={(e) => setFirstName(e.target.value)}
                             value={firstName}
-                            aria-describedby="pwdnote"
+                            aria-describedby="firstName"
 
                         />
-                        <label className="input-label" htmlFor="Last Name">
+                        {/* LAST NAME */}
+                        <label className="input-label" htmlFor="lastName">
                             Last Name:
                         </label>
                         <input
@@ -147,11 +150,11 @@ const Register = () => {
                             id="lastName"
                             onChange={(e) => setLastName(e.target.value)}
                             value={lastName}
-                            aria-describedby="pwdnote"
+                            aria-describedby="lastName"
 
                         />
                         </div>
-                        <label className="input-label" htmlFor="Employee ID">
+                        <label className="input-label flex flex-row items-center" htmlFor="employeeID">
                             Employee ID:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validName || !employeeID ? "hide" : "invalid"} />
@@ -167,11 +170,11 @@ const Register = () => {
                             required
                             placeholder="Eg. LP900"
                             aria-invalid={validName ? "false" : "true"}
-                            aria-describedby="uidnote"
+                            aria-describedby="employeeID"
                         />
 
 
-                        <label className="input-label" htmlFor="password">
+                        <label className="input-label flex flex-row items-center" htmlFor="password">
                             Password:
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPwd || !password ? "hide" : "invalid"} />
@@ -185,7 +188,7 @@ const Register = () => {
                             value={password}
                             required
                             aria-invalid={validPwd ? "false" : "true"}
-                            aria-describedby="pwdnote"
+                            aria-describedby="password"
                         />
                         <p className="flex flex-col input-tooltip group-focus-within:scale-100">
                             <span>Password should include one upper case letter,</span> 
@@ -194,7 +197,7 @@ const Register = () => {
                         </div>
 
 
-                        <label className="input-label" htmlFor="confirm_pwd">
+                        <label className="input-label flex flex-row items-center" htmlFor="confirm_pwd">
                             Confirm Password:
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
@@ -208,7 +211,7 @@ const Register = () => {
                             value={matchPwd}
                             required
                             aria-invalid={validMatch ? "false" : "true"}
-                            aria-describedby="confirmnote"
+                            aria-describedby="confirm_pwd"
 
                         />
                         <p className="flex flex-col input-tooltip group-focus-within:scale-100">
@@ -218,21 +221,21 @@ const Register = () => {
                         </div>
                         
 
-                        <label className="input-label" htmlFor="Email">
+                        <label className="input-label" htmlFor="email">
                             Email:
                         </label>
                         <input
                             className="input-form"
-                            type="email"
+                            type="text"
                             id="email"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
-                            aria-describedby="pwdnote"
+                            aria-describedby="email"
 
                         />
 
-                        <label className="input-label" htmlFor="Phone">
+                        <label className="input-label" htmlFor="phone">
                             Phone:
                         </label>
                         <input
@@ -242,7 +245,7 @@ const Register = () => {
                             onChange={(e) => setPhone(e.target.value)}
                             value={phone}
                             required
-                            aria-describedby="pwdnote"
+                            aria-describedby="phone"
 
                         />
 

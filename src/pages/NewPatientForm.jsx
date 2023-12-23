@@ -58,7 +58,6 @@ const NewPatient = () => {
                 }
             );
             
-            //clear state and controlled inputs
             navigate(from, {replace: true});
         } catch (err) {
             if (!err?.response) {

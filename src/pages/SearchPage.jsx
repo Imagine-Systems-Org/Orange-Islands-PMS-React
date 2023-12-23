@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import PatientList from '../components/PatientList'
 import SearchBar from "../components/SearchBar"
 import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
 import BackgroundImage from '../components/BackgroundImage'
 
 
