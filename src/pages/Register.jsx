@@ -9,7 +9,7 @@ import Header from "../components/Header";
 import axios from '../api/axios';
 import BackgroundImage from "../components/BackgroundImage";
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[A-Z]{2}\d{3}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{4,24}$/;
 const REGISTER_URL = 'users/register';
 
@@ -35,7 +35,6 @@ const Register = () => {
 
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
 
@@ -78,17 +77,13 @@ const Register = () => {
                     headers: { 'Content-Type': 'application/json' }
                 }
             );
-            // TODO: remove console.logs before deployment
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response))
-            //clear state and controlled inputs
             navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {
                 console.log(err);
                 setErrMsg('No Server Response');
             } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
+                setErrMsg('Employee ID Taken');
             } else {
                 setErrMsg('Registration Failed')
             }
@@ -170,6 +165,7 @@ const Register = () => {
                             onChange={(e) => setEmployeeID(e.target.value)}
                             value={employeeID}
                             required
+                            placeholder="Eg. LP900"
                             aria-invalid={validName ? "false" : "true"}
                             aria-describedby="uidnote"
                         />
@@ -180,6 +176,7 @@ const Register = () => {
                             <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validPwd || !password ? "hide" : "invalid"} />
                         </label>
+                        <div className="relative group">
                         <input
                             className="input-form"
                             type="password"
@@ -190,6 +187,11 @@ const Register = () => {
                             aria-invalid={validPwd ? "false" : "true"}
                             aria-describedby="pwdnote"
                         />
+                        <p className="flex flex-col input-tooltip group-focus-within:scale-100">
+                            <span>Password should include one upper case letter,</span> 
+                            <span>one symbol, one number and at least 4 characters.</span>
+                        </p>
+                        </div>
 
 
                         <label className="input-label" htmlFor="confirm_pwd">
@@ -197,6 +199,7 @@ const Register = () => {
                             <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
                         </label>
+                        <div className="relative group">
                         <input
                             className="input-form"
                             type="password"
@@ -208,10 +211,12 @@ const Register = () => {
                             aria-describedby="confirmnote"
 
                         />
-                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Must match the first password input field.
+                        <p className="flex flex-col input-tooltip group-focus-within:scale-100">
+                            <span>Password should include one upper case letter,</span> 
+                            <span>one symbol, one number and at least 4 characters.</span>
                         </p>
+                        </div>
+                        
 
                         <label className="input-label" htmlFor="Email">
                             Email:

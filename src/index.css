@@ -35,10 +35,10 @@
       transition-all scale-0 origin-top;
     }
     .input-tooltip {
-      @apply absolute w-auto p-2 m-2 min-w-max top-28 rounded-md shadow-md
+      @apply absolute w-auto p-2 m-3 min-w-max left-96 top-0 rounded-md shadow-md
       text-gray-600 bg-Selective
       text-xs font-bold 
-      transition-all scale-0 origin-top;
+      transition-all scale-0 origin-left;
     }
 
     .hide {
@@ -96,5 +96,8 @@
     }
     .patient-entry-inner {
       @apply mx-3 mb-3 mt-5 rounded-xl border-4 border-Selective p-2 bg-gray-100
+    }
+    .login-hover-button {
+      @apply absolute right-0 bottom-0 group-hover:rotate-180 transition-all duration-300
     }
     }

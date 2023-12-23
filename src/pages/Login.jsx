@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaArrowCircleLeft } from "react-icons/fa";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -8,15 +8,12 @@ import useAccount from '../api/useAccount';
 import { getUser } from '../api/getUser';
 
 import axios from '../api/axios';
-const LOGIN_URL = 'users/login';
 
 const Login = () => {
     const { setAuth } = useAuth();
     const { setAccount } = useAccount();
 
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/dashboard";
 
     const userRef = useRef();
     const errRef = useRef();
@@ -37,15 +34,12 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(LOGIN_URL,
+            const response = await axios.post('users/login',
                 JSON.stringify({ employeeID, password }),
                 {
                     headers: { 'Content-Type': 'application/json' }
                 }
             );
-            const accessToken = JSON.stringify(response?.data);
-            //console.log(JSON.stringify(response));
-            // const accessToken = response?.data?.accessToken;
             setAuth({ employeeID, password, accessToken });
             getUser(employeeID).then(json => {
                 setAccount(json)
@@ -70,9 +64,10 @@ const Login = () => {
         <Header />
                 <section className='form-section min-h-screen'>
                 
-                    <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <p ref={errRef} className={errMsg ? "errmsg font-Zilla text-3xl" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1 className='heading'>Welcome tO suN CLinic</h1>
                     <form className="grid gap-4 grid-cols-2 grid-rows-3 items-center" onSubmit={handleSubmit}>
+                        {/* USERNAME */}
                         <input
                             className='input-form-login'
                             type="text"
@@ -84,7 +79,7 @@ const Login = () => {
                             required
                         />
                         <label className='font-MajorMono text-2xl' htmlFor="username">emPloyee ID</label>
-
+                        {/* PASSWORD */}
                         <input
                             className='input-form'
                             type="password"
@@ -94,23 +89,22 @@ const Login = () => {
                             required
                         />
                         <label className='font-MajorMono text-2xl' htmlFor="password">pAsswOrd</label>
+                        {/* LOGIN BUTTON */}
                         <button className='login-button row-start-3 col-start-2 relative group'>Log In 
-                        <FaArrowCircleLeft className='absolute right-0 bottom-0 group-hover:rotate-180 transition-all duration-300' size={50}/></button>
-
-
-
+                        <FaArrowCircleLeft className='login-hover-button' size={50}/></button>
                     </form>
                     <div className="grid gap-4 grid-cols-2 grid-rows-1 items-center">
-                    <Link className='row-start-1 col-start-2' to="/register">
-                    <button
-                        className='login-button relative group'>New User
-                        <FaArrowCircleLeft className='absolute right-0 bottom-0 group-hover:rotate-180 transition-all duration-300' size={50}/>
-                    </button>
-                    </Link>
+                        {/* REGISTER BUTTON */}
+                        <Link className='row-start-1 col-start-2' to="/register">
+                        <button
+                            className='login-button relative group'>New User
+                            <FaArrowCircleLeft className='login-hover-button' size={50}/>
+                        </button>
+                        </Link>
                     </div>
                 </section>
-                <Footer />
-                </>
+            <Footer />
+        </>
     )
 }
 
