@@ -3,8 +3,7 @@ import useAccount from "../api/useAccount";
 import { useState, useEffect } from "react";
 import { getPatientsByDoctor, getPatientsByNurse } from "../api/getPatientsByEmployee";
 
-const DashboardList = ({ }) => {
-    const { account } = useAccount();
+const DashboardList = ({ account }) => {
     let [ myPatients, setMyPatients ] = useState([])
 
     useEffect(() => {
@@ -18,10 +17,11 @@ const DashboardList = ({ }) => {
                     setMyPatients(json)
                 })
         }
-        }, [])
-        console.log(myPatients);
 
-    const results = myPatients.map(myPatient => <DashboardAcc key={myPatient._id} myPatient={myPatient}/>)
+        }, [setMyPatients])
+        console.log(myPatients);
+        const results = myPatients.map(myPatient => <DashboardAcc key={myPatient._id} thePatient={myPatient}/>)
+
 
     return (
         <section className="mt-[20vh] flex flex-col items-center min-h-[70vh] w-screen">
