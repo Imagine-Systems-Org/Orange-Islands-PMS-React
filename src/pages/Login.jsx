@@ -8,6 +8,7 @@ import useAccount from '../api/useAccount';
 import { getUser } from '../api/getUser';
 
 import axios from '../api/axios';
+const LOGIN_URL = 'users/login';
 
 const Login = () => {
     const { setAuth } = useAuth();
@@ -34,12 +35,13 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('users/login',
+            const response = await axios.post(LOGIN_URL,
                 JSON.stringify({ employeeID, password }),
                 {
                     headers: { 'Content-Type': 'application/json' }
                 }
             );
+            const accessToken = JSON.stringify(response?.data);
             setAuth({ employeeID, password, accessToken });
             getUser(employeeID).then(json => {
                 setAccount(json)
@@ -67,18 +69,18 @@ const Login = () => {
                     <p ref={errRef} className={errMsg ? "errmsg font-Zilla text-3xl" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1 className='heading'>Welcome tO suN CLinic</h1>
                     <form className="grid gap-4 grid-cols-2 grid-rows-3 items-center" onSubmit={handleSubmit}>
-                        {/* USERNAME */}
+                        {/* EMPLOYEEID */}
                         <input
                             className='input-form-login'
                             type="text"
-                            id="username"
+                            id="employeeID"
                             ref={userRef}
                             autoComplete="off"
                             onChange={(e) => setEmployeeID(e.target.value)}
                             value={employeeID}
                             required
                         />
-                        <label className='font-MajorMono text-2xl' htmlFor="username">emPloyee ID</label>
+                        <label className='font-MajorMono text-2xl' htmlFor="employeeID">emPloyee ID</label>
                         {/* PASSWORD */}
                         <input
                             className='input-form'

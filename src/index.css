@@ -40,11 +40,15 @@
       text-xs font-bold 
       transition-all scale-0 origin-left;
     }
-
     .hide {
       @apply hidden
     }
-
+    .valid {
+      @apply pl-2 text-Persian
+    }
+    .invalid {
+      @apply pl-2 text-Barn pt-1
+    }
     .offscreen {
       @apply hidden
     }
