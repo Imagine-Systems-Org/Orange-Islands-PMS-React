@@ -1,6 +1,25 @@
 import DashboardAcc from "./DashboardAcc"
+import useAccount from "../api/useAccount";
+import { useState, useEffect } from "react";
+import { getPatientsByDoctor, getPatientsByNurse } from "../api/getPatientsByEmployee";
 
-const DashboardList = ({ myPatients }) => {
+const DashboardList = ({ }) => {
+    const { account } = useAccount();
+    let [ myPatients, setMyPatients ] = useState([])
+
+    useEffect(() => {
+        switch (account.profession) {
+            case "Doctor":
+                getPatientsByDoctor(account._id).then(json => {
+                    setMyPatients(json)
+                })
+            case "Nurse":
+                getPatientsByNurse(account._id).then(json => {
+                    setMyPatients(json)
+                })
+        }
+        }, [])
+        console.log(myPatients);
 
     const results = myPatients.map(myPatient => <DashboardAcc key={myPatient._id} myPatient={myPatient}/>)
 

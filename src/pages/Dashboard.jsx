@@ -8,30 +8,12 @@ import { getPatientsByDoctor, getPatientsByNurse } from "../api/getPatientsByEmp
 
 
 const Dashboard = () => {
-    const { account } = useAccount();
-    let [ myPatients, setMyPatients ] = useState([])
 
-    useEffect(() => {
-        switch (account.profession) {
-            case "Doctor":
-                getPatientsByDoctor(account._id).then(json => {
-                    setMyPatients(json)
-                })
-            case "Nurse":
-                getPatientsByNurse(account._id).then(json => {
-                    setMyPatients(json)
-                })
-        }
-        }, [])
-
-
-
-    console.log(account)
     return ( 
         <>
         <NavBar />
         <BackgroundImage />
-        <DashboardList myPatients={myPatients} />
+        <DashboardList />
         <FooterDashboard className="sticky bottom-0"/>
         </>
      );

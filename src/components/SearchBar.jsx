@@ -8,7 +8,9 @@ const SearchBar = ({ patients, setSearchResults }) => {
     const handleSearchChange = (e) => {
         if (!e.target.value) return setSearchResults(patients)
 
-        const resultsArray = patients.filter(patient => patient.name.includes(e.target.value) || patient.trainerName.includes(e.target.value))
+        const resultsArray = patients.filter(
+            patient => patient.name.toLowerCase().includes(e.target.value.toLowerCase()) 
+            || patient.trainerName.toLowerCase().includes(e.target.value.toLowerCase()))
 
         setSearchResults(resultsArray)
     }
@@ -18,7 +20,7 @@ const SearchBar = ({ patients, setSearchResults }) => {
             <form className="relative" onSubmit={handleSubmit}>
                 <input
                     className="input-form w-[36vw] pl-10"
-                    type="text"
+                    type="search"
                     id="search"
                     onChange={handleSearchChange}
                 />
