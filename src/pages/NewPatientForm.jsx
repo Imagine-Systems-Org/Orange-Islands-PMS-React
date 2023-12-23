@@ -10,7 +10,6 @@ import { getAllDoctors } from "../api/getAllDoctors";
 import { getAllNurses } from "../api/getAllNurses";
 
 const NewPatient = () => {
-
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/search";
@@ -25,7 +24,6 @@ const NewPatient = () => {
     const [bed, setBed] = useState('');
     const [trainerName, setTrainerName] = useState('');
     const [trainerPhone, setTrainerPhone] = useState('');
-    const [setErrMsg] = useState('');
 
     const [doctors, setDoctors] = useState([]);
     const [nurses, setNurses] = useState([]);
@@ -62,11 +60,6 @@ const NewPatient = () => {
         } catch (err) {
             if (!err?.response) {
                 console.log(err);
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
-            } else {
-                setErrMsg('Registration Failed')
             }
         }
     }
@@ -83,7 +76,7 @@ const NewPatient = () => {
                     </h1>
 
                     <form className="flex flex-col w-96" onSubmit={handleSubmit}>
-                        <label className="input-label" htmlFor="First Name">
+                        <label className="input-label" htmlFor="name">
                             Name
                         </label>
                         <input
@@ -92,12 +85,12 @@ const NewPatient = () => {
                             id="name"
                             onChange={(e) => setName(e.target.value)}
                             value={name}
-                            aria-describedby="pwdnote"
+                            aria-describedby="name"
                             required
 
                         />
                         <section className="grid grid-cols-2 grid-row-2 gap-x-4">
-                        <label className="input-label row-start-1" htmlFor="profession">
+                        <label className="input-label row-start-1" htmlFor="species">
                             Species
                             </label>
                             <input 
@@ -108,8 +101,9 @@ const NewPatient = () => {
                                 onChange={e => {
                                     setSpecies(e.target.value)
                                 }}
+                                aria-describedby="species"
                             />
-                        <label className="input-label" htmlFor="profession">
+                        <label className="input-label" htmlFor="category">
                             Category
                             </label>
                             <input 
@@ -120,10 +114,11 @@ const NewPatient = () => {
                                 onChange={e => {
                                     setCategory(e.target.value)
                                 }}
+                                aria-describedby="category"
                             />
                         </section>
 
-                        <label className="input-label" htmlFor="Last Name">
+                        <label className="input-label" htmlFor="dateOfBirth">
                             Date of Birth
                         </label>
                         <input
@@ -132,11 +127,11 @@ const NewPatient = () => {
                             id="dateOfBirth"
                             onChange={(e) => setDateOfBirth(e.target.value)}
                             value={dateOfBirth}
-                            aria-describedby="pwdnote"
+                            aria-describedby="dateOfBirth"
 
                         />
 
-                        <label className="input-label" htmlFor="Employee ID">
+                        <label className="input-label" htmlFor="allergies">
                             Allergies
                         </label>
                         <input
@@ -146,6 +141,7 @@ const NewPatient = () => {
                             autoComplete="off"
                             onChange={(e) => setAllergies(e.target.value)}
                             value={allergies}
+                            aria-describedby="allergies"
                         />
                         <label className="input-label" htmlFor="doctorselect">
                             Assign Doctor
@@ -169,6 +165,7 @@ const NewPatient = () => {
                                 onBlur={(e) => {
                                     setBed(e.target.value);
                                 }}
+                                aria-describedby="bed"
                                 >
                                 {/* <option /> adds an empty option at the top */}
                                 <option />
