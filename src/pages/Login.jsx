@@ -79,6 +79,8 @@ const Login = () => {
                             onChange={(e) => setEmployeeID(e.target.value)}
                             value={employeeID}
                             required
+                            placeholder="QF850"
+                            
                         />
                         <label className='font-MajorMono text-2xl' htmlFor="employeeID">emPloyee ID</label>
                         {/* PASSWORD */}
@@ -89,6 +91,7 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                             required
+                            placeholder="password1"
                         />
                         <label className='font-MajorMono text-2xl' htmlFor="password">pAsswOrd</label>
                         {/* LOGIN BUTTON */}
